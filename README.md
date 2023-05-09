@@ -29,12 +29,7 @@ composer require alleyinteractive/wp-pdf-generator
 
 ## Usage
 
-Activate the plugin in WordPress and use it like so:
-
-```php
-$plugin = Alley\WP\PDF_Generator\PDF_Generator\PDF_Generator();
-$plugin->perform_magic();
-```
+Activate the plugin in WordPress.
 
 ## Testing
 
