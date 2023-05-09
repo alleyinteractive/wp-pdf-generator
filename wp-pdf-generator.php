@@ -15,7 +15,7 @@
  * @package wp-pdf-generator
  */
 
-namespace Alley\WP\PDF_Generator;
+namespace Alley\WP\PDF;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;

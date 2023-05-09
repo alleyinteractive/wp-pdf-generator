@@ -1,7 +1,0 @@
-{
-  "core_term_meta": true,
-  "domain": "wp-pdf-generator",
-  "folder": "src",
-  "namespace": "Alley\WP\PDF_Generator",
-  "require_path": "__DIR__"
-}
