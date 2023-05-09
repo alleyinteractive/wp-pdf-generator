@@ -72,7 +72,7 @@ function register_meta_helper(
 	 * @param string $meta_key     The meta key to register.
 	 */
 	$args = apply_filters(
-		'wp_pdf_generator_register_meta_helper_args', // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		'wp_pdf_generator_register_meta_helper_args',
 		wp_parse_args(
 			$args,
 			[
