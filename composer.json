@@ -34,10 +34,10 @@
     "extra": {
         "wordpress-autoloader": {
             "autoload": {
-                "Alley\\WP\\PDF_Generator": "src"
+                "Alley\\WP\\PDF": "src"
             },
             "autoload-dev": {
-                "Alley\\WP\\PDF_Generator\\Tests": "tests"
+                "Alley\\WP\\PDF\\Tests": "tests"
             }
         }
     },

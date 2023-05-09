@@ -7,7 +7,7 @@
  * @package wp-pdf-generator
  */
 
-namespace Alley\WP\PDF_Generator;
+namespace Alley\WP\PDF;
 
 // Register and enqueue assets.
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\action_wp_enqueue_scripts' );

@@ -38,7 +38,8 @@
     <properties>
       <property name="prefixes" type="array">
         <element value="alleyinteractive" />
-        <element value="wp_pdf_generator" />
+        <element value="wp_pdf" />
+        <element value="Alley\WP\PDF" />
       </property>
     </properties>
   </rule>

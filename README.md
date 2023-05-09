@@ -1,6 +1,6 @@
 # WP PDF Generator
 
-Contributors: alleyinteractive
+Contributors: alleyinteractive, anubisthejackle
 
 Tags: alleyinteractive, wp-pdf-generator
 

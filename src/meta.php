@@ -5,7 +5,7 @@
  * @package wp-pdf-generator
  */
 
-namespace Alley\WP\PDF_Generator;
+namespace Alley\WP\PDF;
 
 // Register custom meta fields.
 register_post_meta_from_defs();
