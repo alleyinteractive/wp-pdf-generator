@@ -1,8 +1,8 @@
 {
-  "name": "create-wordpress-plugin",
+  "name": "wp-pdf-generator",
   "version": "1.0.0",
   "license": "GPL-2.0-or-later",
-  "main": "plugin.php",
+  "main": "wp-pdf-generator.php",
   "engines": {
     "node": "16",
     "npm": "8"

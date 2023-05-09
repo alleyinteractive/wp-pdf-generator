@@ -4,7 +4,7 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/packages/create-block/docs/external-template.md#defaultvalues
  */
 module.exports = {
-  namespace: 'create-wordpress-plugin',
+  namespace: 'wp-pdf-generator',
   plugin: false,
   description: '',
   dashicon: 'palmtree',

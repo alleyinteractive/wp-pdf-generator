@@ -1,7 +1,7 @@
 {
   "core_term_meta": true,
-  "domain": "create-wordpress-plugin",
+  "domain": "wp-pdf-generator",
   "folder": "src",
-  "namespace": "Create_WordPress_Plugin",
+  "namespace": "Alley\WP\PDF_Generator",
   "require_path": "__DIR__"
 }

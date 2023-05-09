@@ -1,17 +1,17 @@
 {
-    "name": "alleyinteractive/create-wordpress-plugin",
-    "description": "A skeleton WordPress plugin",
+    "name": "alleyinteractive/wp-pdf-generator",
+    "description": "A WordPress plugin for generating PDFs from post content.",
     "type": "wordpress-plugin",
     "keywords": [
         "alleyinteractive",
-        "create-wordpress-plugin"
+        "wp-pdf-generator"
     ],
-    "homepage": "https://github.com/alleyinteractive/create-wordpress-plugin",
+    "homepage": "https://github.com/alleyinteractive/wp-pdf-generator",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "author_name",
-            "email": "email@domain.com"
+            "name": "Alley Interactive",
+            "email": "info@alley.com"
         }
     ],
     "require": {
@@ -34,10 +34,10 @@
     "extra": {
         "wordpress-autoloader": {
             "autoload": {
-                "Create_WordPress_Plugin\\": "src"
+                "Alley\\WP\\PDF_Generator": "src"
             },
             "autoload-dev": {
-                "Create_WordPress_Plugin\\Tests\\": "tests"
+                "Alley\\WP\\PDF_Generator\\Tests": "tests"
             }
         }
     },

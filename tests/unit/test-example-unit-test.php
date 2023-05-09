@@ -1,5 +1,5 @@
 <?php
-namespace Create_WordPress_Plugin\Tests\Unit;
+namespace Alley\WP\PDF_Generator\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
