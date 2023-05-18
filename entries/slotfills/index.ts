@@ -8,3 +8,5 @@
 // Import slotfill styles.
 import './index.scss';
 
+// Import slotfills.
+import './show-generator-button';
