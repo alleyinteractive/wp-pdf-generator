@@ -49,6 +49,7 @@ class Generator {
 	public function generate_pdf(): void {
 		if (
 			! is_single() ||
+			! get_the_ID() ||
 			! (bool) get_post_meta( get_the_ID(), 'wp_pdf_generator_show', true ) ||
 			! isset( $_GET['download_pdf'] ) // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		) {
