@@ -17,7 +17,7 @@ class Generator {
 	 * Initialize the PDF Generator hooks.
 	 */
 	public function __invoke(): void {
-		add_action( 'the_content', [ $this, 'add_download_button' ] );
+		add_filter( 'the_content', [ $this, 'add_download_button' ] );
 		add_action( 'template_redirect', [ $this, 'generate_pdf' ] );
 	}
 
@@ -51,7 +51,7 @@ class Generator {
 	/**
 	 * Generates the PDF file, and forces a download.
 	 */
-	public function generate_pdf() {
+	public function generate_pdf(): void {
 		if (
 			! is_single() ||
 			! isset( $_GET['download_pdf'] ) // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -61,6 +61,10 @@ class Generator {
 
 		$post = get_post();
 
+		if( ! $post instanceof \WP_Post ) {
+			return;
+		}
+
 		$content = apply_filters( 'the_content', $post->post_content ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 		$dompdf = new Dompdf();
@@ -68,6 +72,10 @@ class Generator {
 		$dompdf->render();
 
 		$output = $dompdf->output();
+
+		if( empty( $output ) ) {
+			return;
+		}
 
 		$filename = sanitize_title( $post->post_title );
 
