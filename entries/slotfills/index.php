@@ -28,11 +28,11 @@ function register_slotfills_scripts(): void {
 	$asset_file = include __DIR__ . '/index.asset.php';
 
 	wp_register_script(
-	    'wp-pdf-generator-slotfills',
-	    plugins_url( 'index.js', __FILE__ ),
-	    $asset_file['dependencies'],
-	    $asset_file['version'],
-	    true
+		'wp-pdf-generator-slotfills',
+		plugins_url( 'index.js', __FILE__ ),
+		$asset_file['dependencies'],
+		$asset_file['version'],
+		true
 	);
 	wp_set_script_translations( 'wp-pdf-generator-slotfills', 'wp-pdf-generator' );
 

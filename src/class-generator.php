@@ -17,15 +17,21 @@ class Generator {
 	 * Initialize the PDF Generator hooks.
 	 */
 	public function __invoke(): void {
-		add_action( 'the_content', [$this, 'add_download_button'] );
-		add_action( 'template_redirect', [$this, 'generate_pdf'] );
+		add_action( 'the_content', [ $this, 'add_download_button' ] );
+		add_action( 'template_redirect', [ $this, 'generate_pdf' ] );
 	}
 
+	/**
+	 * Adds a download button to the post content.
+	 *
+	 * @param string $content The post content.
+	 * @return string The filtered post content.
+	 */
 	public function add_download_button( $content ): string {
 		if (
 			! get_the_ID() ||
 			! (bool) get_post_meta( get_the_ID(), 'wp_pdf_generator_show', true ) ||
-			isset($_GET['download_pdf'])
+			isset( $_GET['download_pdf'] ) // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		) {
 			return $content;
 		}
@@ -42,17 +48,20 @@ class Generator {
 			);
 	}
 
+	/**
+	 * Generates the PDF file, and forces a download.
+	 */
 	public function generate_pdf() {
 		if (
 			! is_single() ||
-			!isset($_GET['download_pdf'])
+			! isset( $_GET['download_pdf'] ) // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		) {
 			return;
 		}
 
 		$post = get_post();
 
-		$content = apply_filters( 'the_content', $post->post_content );
+		$content = apply_filters( 'the_content', $post->post_content ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 		$dompdf = new Dompdf();
 		$dompdf->loadHtml( $content );
@@ -62,11 +71,14 @@ class Generator {
 
 		$filename = sanitize_title( $post->post_title );
 
-		header('Content-Type: application/pdf');
-		header('Content-Disposition: attachment; filename="' . $filename . '.pdf"');
-		header('Content-Length: ' . strlen($output));
+		header( 'Content-Type: application/pdf' );
+		header( 'Content-Disposition: attachment; filename="' . $filename . '.pdf"' );
+		header( 'Content-Length: ' . strlen( $output ) );
 
-		echo $output;
+		/*
+		 * This content is a raw PDF file. We aren't able to escape that.
+		 */
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		exit;
 	}
 }
