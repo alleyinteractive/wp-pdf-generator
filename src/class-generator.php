@@ -36,14 +36,10 @@ class Generator {
 			return $content;
 		}
 
-		$permalink = get_permalink( get_the_ID() );
-
-		$permalink = add_query_arg( 'download_pdf', true, $permalink );
-
 		return $content .
 			sprintf(
 				'<a href="%s" download>DOWNLOAD PDF</a>',
-				esc_url( $permalink )
+				get_the_download_link(),
 			);
 	}
 
@@ -72,15 +68,14 @@ class Generator {
 
 		$output = $dompdf->output();
 
-		if ( empty( $output ) ) {
+		if (
+			empty( $output ) ||
+			strpos( $output, '%PDF-' ) !== 0
+		) {
 			return;
 		}
 
 		$filename = sanitize_title( $post->post_title );
-
-		if ( empty( $output ) || ! strpos( $output, '%PDF-' ) === 0 ) {
-			return;
-		}
 
 		$dompdf->stream(
 			"{$filename}.pdf",
