@@ -61,7 +61,7 @@ class Generator {
 
 		$post = get_post();
 
-		if( ! $post instanceof \WP_Post ) {
+		if ( ! $post instanceof \WP_Post ) {
 			return;
 		}
 
@@ -73,7 +73,7 @@ class Generator {
 
 		$output = $dompdf->output();
 
-		if( empty( $output ) ) {
+		if ( empty( $output ) ) {
 			return;
 		}
 
