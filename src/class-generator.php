@@ -40,7 +40,6 @@ class Generator {
 
 		$permalink = add_query_arg( 'download_pdf', true, $permalink );
 
-
 		return $content .
 			sprintf(
 				'<a href="%s" download>DOWNLOAD PDF</a>',
@@ -79,14 +78,18 @@ class Generator {
 
 		$filename = sanitize_title( $post->post_title );
 
-		header( 'Content-Type: application/pdf' );
-		header( 'Content-Disposition: attachment; filename="' . $filename . '.pdf"' );
-		header( 'Content-Length: ' . strlen( $output ) );
+		if ( empty( $output ) || ! strpos( $output, '%PDF-' ) === 0 ) {
+			return;
+		}
 
-		/*
-		 * This content is a raw PDF file. We aren't able to escape that.
-		 */
-		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		$dompdf->stream(
+			"{$filename}.pdf",
+			[
+				'Attachment' => true,
+				'compress'   => true,
+			]
+		);
+
 		exit;
 	}
 }
