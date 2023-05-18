@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Components.
 import { PluginDocumentSettingPanel } from '@wordpress/edit-post';
 import { __ } from '@wordpress/i18n';
-import { FormToggle } from '@wordpress/components';
+import { ClipboardButton, FormToggle } from '@wordpress/components';
+import { addQueryArgs } from '@wordpress/url';
 
 import { usePostMetaValue } from '@alleyinteractive/block-editor-tools';
+import { useSelect } from '@wordpress/data';
+
 // Styles
 import './index.scss';
 
+type CoreEditorStore = {
+  getPermalink: Function,
+};
+
 function Sidebar(): JSX.Element {
   const [isChecked, setChecked] = usePostMetaValue('wp_pdf_generator_show');
+  const [hasCopied, setHasCopied] = useState(false);
+
+  const permalink = addQueryArgs(useSelect((select) => (select('core/editor') as CoreEditorStore).getPermalink(), []), { download_pdf: true });
 
   return (
     <PluginDocumentSettingPanel title={__('PDF Generator', 'wp-pdf-generator')}>
@@ -20,8 +30,18 @@ function Sidebar(): JSX.Element {
           checked={isChecked}
           onChange={() => setChecked(!isChecked)}
         />
-        Show PDF Download button?
+        Allow PDF downloading of Post?
       </label>
+      <div className="pdf-generator__copy">
+        <ClipboardButton
+          variant="primary"
+          text={permalink}
+          onCopy={() => setHasCopied(true)}
+          onFinishCopy={() => setHasCopied(false)}
+        >
+          { hasCopied ? 'Copied!' : 'Copy PDF Download Link' }
+        </ClipboardButton>
+      </div>
     </PluginDocumentSettingPanel>
   );
 }

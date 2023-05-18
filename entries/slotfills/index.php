@@ -36,6 +36,12 @@ function register_slotfills_scripts(): void {
 	);
 	wp_set_script_translations( 'wp-pdf-generator-slotfills', 'wp-pdf-generator' );
 
+	wp_enqueue_style(
+		'wp-pdf-generator-slotfills',
+		plugins_url( 'index.css', __FILE__ ),
+		[],
+		$asset_file['version'],
+	);
 }
 add_action( 'init', __NAMESPACE__ . '\register_slotfills_scripts' );
 
