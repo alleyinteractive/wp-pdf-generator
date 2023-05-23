@@ -2,5 +2,23 @@
   "extends": ["@alleyinteractive/eslint-config/typescript-react"],
   "settings": {
     "import/resolver": "webpack"
-  }
+  },
+  "rules": {
+    "import/extensions": [
+       "error",
+       "ignorePackages",
+       {
+         "js": "never",
+         "jsx": "never",
+         "ts": "never",
+         "tsx": "never"
+       }
+    ],
+    "jsx-a11y/label-has-associated-control": [ 2, {
+      "controlComponents": [
+        "FormToggle"
+      ],
+      "depth": 3
+    }]
+ }
 }
