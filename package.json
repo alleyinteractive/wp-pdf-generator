@@ -103,7 +103,7 @@
     "@alleyinteractive/stylelint-config": "^0.0.2",
     "@babel/preset-env": "^7.22.5",
     "@types/jest": "^29.5.2",
-    "@types/react": "^18.2.10",
+    "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.5",
     "@types/wordpress__block-editor": "^11.5.1",
     "@types/wordpress__components": "^23.0.1",
