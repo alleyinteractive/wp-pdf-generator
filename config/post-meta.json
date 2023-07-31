@@ -2,8 +2,6 @@
   "wp_pdf_generator_show": {
     "default": true,
     "type": "boolean",
-    "post_types": [
-      "post"
-    ]
+    "post_types": "all"
   }
 }
