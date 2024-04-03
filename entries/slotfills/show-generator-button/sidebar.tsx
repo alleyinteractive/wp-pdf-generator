@@ -6,6 +6,7 @@ import { __ } from '@wordpress/i18n';
 import { ClipboardButton, FormToggle } from '@wordpress/components';
 import { addQueryArgs } from '@wordpress/url';
 
+// eslint-disable-next-line import/no-unresolved
 import { usePostMetaValue } from '@alleyinteractive/block-editor-tools';
 import { useSelect } from '@wordpress/data';
 
@@ -16,7 +17,7 @@ type CoreEditorStore = {
   getPermalink: Function,
 };
 
-function Sidebar(): JSX.Element {
+function Sidebar() {
   const [isChecked, setChecked] = usePostMetaValue('wp_pdf_generator_show');
   const [hasCopied, setHasCopied] = useState(false);
 
