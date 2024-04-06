@@ -101,7 +101,7 @@
   "devDependencies": {
     "@alleyinteractive/eslint-config": "^0.1.5",
     "@alleyinteractive/stylelint-config": "^0.0.2",
-    "@babel/preset-env": "^7.24.3",
+    "@babel/preset-env": "^7.24.4",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.23",
