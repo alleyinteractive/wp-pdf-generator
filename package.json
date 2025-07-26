@@ -99,7 +99,7 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@alleyinteractive/eslint-config": "^0.1.6",
+    "@alleyinteractive/eslint-config": "^0.2.0",
     "@alleyinteractive/stylelint-config": "^0.0.2",
     "@babel/preset-env": "^7.28.0",
     "@types/jest": "^30.0.0",
